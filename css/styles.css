@@ -185,8 +185,8 @@ header {
 
 @media (max-width: 1024px) {
   .hero {
-      align-items: center;
-      text-align: center;
+      background-color: rgba(9, 3, 3, 0.4); /* Semi-transparent overlay */
+      background-blend-mode: overlay; /* Blends the color and image */
       padding: 0 30px; 
   }
 
@@ -252,6 +252,151 @@ header {
 
 /* end of Hero Section */
 
+/* home discover */
+.discover-section {
+  padding: 60px 20px;
+  background-color: white;
+}
+
+.discover-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1140px;
+  margin: 0 auto;
+  gap: 30px;
+}
+
+.discover-left {
+  flex-basis: 40%;
+}
+
+.discover-left img {
+  width: 100%;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.discover-right {
+  flex-basis: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 40px 10px;
+}
+
+.discover-heading {
+  font-family: 'Poly', serif;
+  font-size: 40px;
+  font-weight: 400;
+  color: #9A0107;
+  margin-bottom: 20px;
+}
+
+.discover-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  color: #000;
+  margin-bottom: 30px;
+  line-height: 36px;
+  text-align: left;
+}
+
+.discover-btn {
+  padding: 10px 40px;
+  background-color: #9A0107;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 36px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: inline-block;
+  width: auto;
+  white-space: nowrap;
+}
+
+.discover-btn:hover {
+  background-color: #ff4d4d;
+}
+
+/* Info Blocks */
+.info-blocks {
+  display: flex;
+  gap: 30px;
+  margin: 30px 0;
+}
+
+.info-block {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 3.37px 0px #00000040;
+  padding: 40px;
+  width: 100%;
+  text-align: left;
+}
+
+.info-heading {
+  font-family: 'Poly', serif;
+  font-size: 30px;
+  font-weight: 400;
+  color: #9A0107;
+  margin-bottom: 10px;
+}
+
+.info-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #000;
+}
+
+@media (max-width: 768px) {
+  .discover-container {
+    flex-direction: column-reverse; 
+    text-align: center;
+  }
+
+  .discover-left {
+    order: 1; 
+    width: 100%;
+    text-align: center;
+  }
+
+  .discover-right {
+    order: 1; 
+    width: 100%;
+    align-items: center;
+  }
+
+  .discover-left img {
+    margin-bottom: 20px;
+  }
+
+  .discover-heading {
+    font-size: 28px;
+  }
+
+  .discover-text {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .discover-btn {
+    font-size: 16px;
+  }
+
+  .info-blocks {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+/* end of home discover */
 
 
 /* testimonials */
@@ -361,29 +506,6 @@ header {
     }
 }
 
-
-/* Services Section */
-.services {
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.services h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
-
-.services-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-.service {
-  flex: 1 1 250px;
-  max-width: 300px;
-}
 
 /* How it Works Section */
 .how-it-works {
@@ -779,142 +901,6 @@ header {
     text-align: center;
     color: white; /* Text color */
     padding: 20px;
-}
-/* Discover Section */
-.discover-section {
-    padding: 60px 20px;
-    background-color: white;
-}
-
-.discover-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1140px;
-    margin: 0 auto;
-    gap: 30px;
-}
-
-.discover-left {
-    flex-basis: 40%;
-}
-
-.discover-left img {
-    width: 100%;
-    border-radius: 10px;
-    padding: 20px;
-}
-
-.discover-right {
-    flex-basis: 60%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 40px 10px;
-}
-
-.discover-heading {
-    font-family: 'Poly', serif;
-    font-size: 40px;
-    font-weight: 400;
-    color: #9A0107;
-    margin-bottom: 20px;
-}
-
-.discover-heading-dark {
-    color: #fff;
-}
-
-.discover-text {
-    font-family: 'Poppins', sans-serif;
-    font-size: 24px;
-    color: #000;
-    margin-bottom: 30px;
-    line-height: 36px;
-    text-align: left;
-}
-
-.discover-btn {
-    padding: 10px 40px;
-    background-color: #9A0107;
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 36px;
-    text-align: left;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    display: inline-block;
-    width: auto;
-    white-space: nowrap;
-}
-
-.discover-btn:hover {
-    background-color: #ff4d4d;
-}
-
-/* Info Blocks */
-.info-blocks {
-    display: flex;
-    gap: 30px;
-    margin: 30px 0;
-}
-
-.info-block {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0px 0px 3.37px 0px #00000040;
-
-    padding: 40px;
-    width: 100%;
-    text-align: left;
-}
-
-.info-heading {
-    font-family: 'Poly', serif;
-    font-size: 30px;
-    font-weight: 400;
-    color: #9A0107;
-    margin-bottom: 10px;
-}
-
-.info-text {
-    font-family: 'Poppins', sans-serif;
-    font-size: 20px;
-    font-weight: 400;
-    color: #000;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .discover-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .discover-left img {
-        margin-bottom: 20px;
-    }
-
-    .discover-heading {
-        font-size: 28px;
-    }
-
-    .discover-text {
-        font-size: 16px;
-    }
-
-    .discover-btn {
-        font-size: 16px;
-    }
-
-    .info-blocks {
-        flex-direction: column;
-        gap: 20px;
-    }
 }
 
   
