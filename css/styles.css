@@ -13,34 +13,39 @@ body, html {
   font-family: Arial, sans-serif;
   width: 100%;
   overflow-x: hidden;
-  color: #333;
+  color: #000;
 }
 
 .text-center {
   text-align: center;
 }
 
-/* Header */
+/* header */
 header {
-  background: linear-gradient(90deg, #6E0106 0%, #D00103 41.9%, #D4020C 100%);
-  padding: 20px 58px;
-}
-
-.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white;
+  background: linear-gradient(90deg, #6E0106 0%, #D00103 41.9%, #D4020C 100%);
+  padding: 20px 58px;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
 }
 
+/* Logo */
 .navbar-brand {
   font-family: 'Poppins', sans-serif;
   font-size: 24px;
   font-weight: 600;
-  line-height: 36px;
   color: white;
   text-decoration: none;
-  text-align: left;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .navbar-nav {
@@ -53,32 +58,68 @@ header {
   font-family: 'Poppins', sans-serif;
   font-size: 24px;
   font-weight: 600;
-  line-height: 36px;
-  text-align: left;
   color: white;
   text-decoration: none;
 }
 
-/* Hero Section */
-.hero {
-    background: url("../images/home-hero-new.png") center center no-repeat;
-    background-size: cover; /* Ensures the image covers the entire container */
-    background-position: center center; /* Keeps the image centered */
-    background-attachment: scroll; /* Keeps the background attached to scrolling */
-    height: 100vh; /* The hero section takes up the full viewport height */
-    width: 100vw; /* Full viewport width */
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 0 58px;
-    margin: 0;
-    overflow: hidden; /* Prevents any overflow */
-  }
-  
+/* Hamburger */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
 
-/* Hero Heading */
+@media (max-width: 768px) {
+  .navbar-nav {
+    display: none;
+    position: absolute;
+    top: 75px;
+    right: 0;
+    background-color: #d10106;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .navbar-nav.active {
+    display: flex;
+  }
+
+  .navbar-nav li a {
+    font-size: 20px;
+    padding: 10px 0;
+  }
+}
+
+/* end of header */
+
+
+/* home hero */
+
+.hero {
+  background: url("../images/home-hero-new.png") center center no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 58px;
+  margin: 0;
+  overflow: hidden;
+}
+
 .hero h1 {
   font-family: 'Poly', serif;
   font-size: 50px;
@@ -88,20 +129,19 @@ header {
   color: white;
 }
 
-/* Email Form */
+/* Email Form (Desktop) */
 .email-form {
+  position: relative;
   display: flex;
   align-items: center;
   width: 500px;
   height: 64px;
-  border-radius: 100px; /* Fully rounded corners */
+  border-radius: 100px;
   overflow: hidden;
   background-color: white;
-  position: relative;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Input Field */
 .email-form input[type="email"] {
   font-family: 'Poppins', sans-serif;
   font-size: 18px;
@@ -112,35 +152,106 @@ header {
   border: none;
   outline: none;
   flex: 1;
-  border-radius: 100px; /* Rounded left side */
+  border-radius: 100px;
   background-color: white;
   color: #333;
 }
 
-/* Submit Button Inside Input Field */
+
 .email-form button {
+  position: absolute;
+  right: 10px;
   font-family: 'Poppins', sans-serif;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 600;
-  line-height: 36px;
   color: white;
   background-color: #9A0107;
-  border: 3px solid;
+  border: none;
   outline: none;
   cursor: pointer;
-  padding: 0 30px;
-  height: 100%;
-  border-radius: 100px; /* Rounded right side */
+  padding: 10px 20px;
+  height: auto;
+  border-radius: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
-  white-space: nowrap; /* Prevents text wrapping */
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Add hover effect for button */
 .email-form button:hover {
-  background-color: #7f0106; /* Darker shade on hover */
+  background-color: #7f0106;
 }
+
+@media (max-width: 1024px) {
+  .hero {
+      align-items: center;
+      text-align: center;
+      padding: 0 30px; 
+  }
+
+  .hero h1 {
+      font-size: 40px;
+  }
+
+  .email-form {
+      flex-direction: column;
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      gap: 10px;
+      position: static;
+      background: none;
+      box-shadow: none;
+      border-radius: 0px;
+  }
+
+  .email-form input[type="email"] {
+      width: 100%;
+      padding: 15px;
+      text-align: center;
+      border-radius: 100px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .email-form button {
+      position: static;
+      width: 100%;
+      padding: 15px;
+      border-radius: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+      font-size: 32px;
+  }
+
+  .hero {
+      padding: 0 20px;
+  }
+
+  .email-form {
+      max-width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+      font-size: 28px;
+  }
+
+  .hero {
+      padding: 0 15px;
+  }
+
+  .email-form {
+      max-width: 100%;
+  }
+}
+
+/* end of Hero Section */
+
 
 
 /* testimonials */

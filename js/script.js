@@ -1,14 +1,9 @@
-// JavaScript to toggle the hamburger menu
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.querySelector('.nav-links');
-
-hamburger.addEventListener('click', () => {
-    // Toggle the active class for both the hamburger icon and the nav links
-    hamburger.classList.toggle('active');
-    navLinks.classList.toggle('active');
+// Header
+document.querySelector('.hamburger').addEventListener('click', function() {
+    document.querySelector('.navbar-nav').classList.toggle('active');
 });
 
-
+// testimonial slider
 const sliderContainer = document.querySelector('.slider-container');
   const prevButton = document.getElementById('prev');
   const nextButton = document.getElementById('next');
@@ -24,7 +19,7 @@ const sliderContainer = document.querySelector('.slider-container');
   nextButton.addEventListener('click', () => {
       currentIndex++;
       if (currentIndex >= totalSlides - 2) {
-          currentIndex = 0; // Loop back to start
+          currentIndex = 0; // lop back to start
       }
       updateSliderPosition();
   });
@@ -32,14 +27,14 @@ const sliderContainer = document.querySelector('.slider-container');
   prevButton.addEventListener('click', () => {
       currentIndex--;
       if (currentIndex < 0) {
-          currentIndex = totalSlides - 3; // Loop to the last full set
+          currentIndex = totalSlides - 3;
       }
       updateSliderPosition();
   });
 
   window.addEventListener('resize', updateSliderPosition);
 
-  // Auto loop through slides every 5 seconds
+  // auto loop 
   setInterval(() => {
       nextButton.click();
-  }, 300000);
+  }, 20000);
