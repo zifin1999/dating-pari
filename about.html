@@ -11,9 +11,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poly&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  
-  
   <script src="https://unpkg.com/feather-icons"></script>
   
 
@@ -101,39 +98,123 @@
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
     </p>
   </section>
-  
-  
-  <section class="explore-section">
-    <div class="explore-container">
-        <div class="explore-content">
-            <h2 class="explore-heading">Why Company Name?</h2>
-            <div class="info-blocks">
-              <div class="info-block">
-                  <h3 class="info-heading">20k+</h3>
-                  <p class="info-text">Happy Customers</p>
-              </div>
-              <div class="info-block">
-                  <h3 class="info-heading">Perfect Match</h3>
-                  <p class="info-text">Lots of people found
-                    success in real life</p>
-              </div>
-              <div class="info-block">
-                  <h3 class="info-heading">Credibility</h3>
-                  <p class="info-text">Lots of people found
-                    success in real life</p>
-              </div>
-              <div class="info-block">
-                  <h3 class="info-heading">Retention</h3>
-                  <p class="info-text">Lots of people found
-                    success in real life</p>
-              </div>
-            </div>
-        </div>
-        
-    </div>
-</section>
-  
 
+
+<!-- testimonial section -->
+<section class="testimonial-section">
+  <h2 class="testimonial-heading">What Our Clients Say</h2>
+  <div class="testimonial-slider">
+      <div class="slider-container">
+          <div class="testimonial">
+            <img src="images/testimonial.png" alt="">
+              <h3>Devesh Verma<span class="stars">★★★★★</span></h3>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy</p>
+          </div>
+          <div class="testimonial">
+            <img src="images/testimonial.png" alt="">
+              <h3>Devesh Verma<span class="stars">★★★★★</span></h3>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy</p>
+          </div>
+          <div class="testimonial">
+            <img src="images/testimonial.png" alt="">
+              <h3>Devesh Verma<span class="stars">★★★★★</span></h3>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy</p>
+          </div>
+          <div class="testimonial">
+            <img src="images/testimonial.png" alt="">
+              <h3>Devesh Verma<span class="stars">★★★★★</span></h3>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy</p>
+          </div>
+          <div class="testimonial">
+            <img src="images/testimonial.png" alt="">
+              <h3>Devesh Verma<span class="stars">★★★★★</span></h3>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy</p>
+          </div>
+          <div class="testimonial">
+            <img src="images/testimonial.png" alt="">
+              <h3>Devesh Verma<span class="stars">★★★★★</span></h3>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy</p>
+          </div>
+          
+      </div>
+      <div class="navigation">
+        <button class="nav-button" id="prev" aria-label="Previous">
+            <i data-feather="chevron-left"></i>
+        </button>
+        <button class="nav-button" id="next" aria-label="Next">
+            <i data-feather="chevron-right"></i>
+        </button>
+    </div>
+    
+  </div>
+</section>
+
+<script>
+  const sliderContainer = document.querySelector('.slider-container');
+  const prevButton = document.getElementById('prev');
+  const nextButton = document.getElementById('next');
+
+  let currentIndex = 0;
+  const totalSlides = document.querySelectorAll('.testimonial').length;
+
+  const updateSliderPosition = () => {
+      const sliderWidth = sliderContainer.clientWidth / 3;
+      sliderContainer.style.transform = `translateX(-${currentIndex * sliderWidth}px)`;
+  };
+
+  nextButton.addEventListener('click', () => {
+      currentIndex++;
+      if (currentIndex >= totalSlides - 2) {
+          currentIndex = 0; // Loop back to start
+      }
+      updateSliderPosition();
+  });
+
+  prevButton.addEventListener('click', () => {
+      currentIndex--;
+      if (currentIndex < 0) {
+          currentIndex = totalSlides - 3; // Loop to the last full set
+      }
+      updateSliderPosition();
+  });
+
+  window.addEventListener('resize', updateSliderPosition);
+
+  // Auto loop through slides every 5 seconds
+  setInterval(() => {
+      nextButton.click();
+  }, 300000);
+</script>
+
+<section class="explore-section">
+  <div class="explore-container">
+      <div class="explore-content">
+          <h2 class="explore-heading">Why Company Name?</h2>
+          <div class="info-blocks">
+            <div class="info-block">
+                <h3 class="info-heading">20k+</h3>
+                <p class="info-text">Happy Customers</p>
+            </div>
+            <div class="info-block">
+                <h3 class="info-heading">Perfect Match</h3>
+                <p class="info-text">Lots of people found
+                  success in real life</p>
+            </div>
+            <div class="info-block">
+                <h3 class="info-heading">Credibility</h3>
+                <p class="info-text">Lots of people found
+                  success in real life</p>
+            </div>
+            <div class="info-block">
+                <h3 class="info-heading">Retention</h3>
+                <p class="info-text">Lots of people found
+                  success in real life</p>
+            </div>
+          </div>
+      </div>
+      
+  </div>
+</section>
 
 <!-- Footer -->
 <footer class="footer">
@@ -142,11 +223,12 @@
       <div class="footer-left">
         <h3 class="footer-heading">ABCDDEF</h3>
         <ul class="footer-contact">
-          <li><i data-feather="phone"></i> +91 9876543210</li>
-          <li><i data-feather="mail"></i> abcd@gmail.com</li>
-          <li><i data-feather="map-pin"></i> Lorem Ipsum, Lorem Ipsum, Lorem Ipsum, Lorem Ipsum</li>
+            <li><i data-feather="phone" class="icon"></i> +91 9876543210</li>
+            <li><i data-feather="mail" class="icon"></i> abcd@gmail.com</li>
+            <li><i data-feather="map-pin" class="icon map-icon"></i> Lorem Ipsum, Lorem Ipsum, Lorem Ipsum, Lorem Ipsum</li>
         </ul>
-      </div>
+    </div>
+    
   
       <!-- Right Section: Newsletter Subscription & Social Links -->
       <div class="footer-right">
