@@ -12,7 +12,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Poly&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
   
   <script src="https://unpkg.com/feather-icons"></script>
   
@@ -194,19 +195,19 @@
   </section>
   <!-- end of how it works -->
   
-  
-  <section class="connect-section">
-    <div class="connect-container">
-      <h2 class="connect-heading">Let's Get Connect!</h2>
-      <div class="form-card">
+  <!-- Connect Section -->
+<section class="connect-section">
+  <div class="connect-container">
+    <h2 class="connect-heading">Let's Get Connect!</h2>
+    <div class="form-card">
       <label for="age-input">Your Age</label>
       <select id="age-input" name="age">
-        <option value="" disabled selected>20</option>
-        <!-- Add more options as necessary -->
+        <option value="" disabled selected>Select Age</option>
+        <!-- Options will be populated dynamically -->
       </select>
       <div class="form-navigation">
         <button class="prev-button">
-          <i class="arrow-icon">&#8592;</i>
+          <i class="fas fa-chevron-left"></i>
         </button>
         <button class="next-button">Next</button>
       </div>
@@ -223,6 +224,17 @@
   </div>
 </section>
 
+<script>
+  const ageInput = document.getElementById('age-input');
+  for (let age = 18; age <= 100; age++) {
+    const option = document.createElement('option');
+    option.value = age;
+    option.textContent = age;
+    ageInput.appendChild(option);
+  }
+</script>
+
+  
 
 
   <section class="explore-section">
@@ -246,7 +258,7 @@
         <ul class="footer-contact">
             <li><i data-feather="phone" class="icon"></i> +91 9876543210</li>
             <li><i data-feather="mail" class="icon"></i> abcd@gmail.com</li>
-            <li><i data-feather="map-pin" class="icon map-icon"></i> Lorem Ipsum, Lorem Ipsum, Lorem Ipsum, Lorem Ipsum</li>
+            <li><i data-feather="map-pin" class="map-icon"></i> Lorem Ipsum, Lorem Ipsum, Lorem Ipsum, Lorem Ipsum</li>
         </ul>
     </div>
   
