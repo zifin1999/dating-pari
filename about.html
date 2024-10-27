@@ -11,31 +11,32 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poly&display=swap" rel="stylesheet">
   
-  <script src="https://unpkg.com/feather-icons"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <a class="navbar-brand" href="#">Logo</a>
-    <div class="navbar">
-        
-        <!-- Hamburger Icon for Mobile -->
-        <button class="hamburger" aria-label="Menu">
-            <i class="fas fa-bars"></i>
-        </button>
-  
-        <nav>
-            <ul class="navbar-nav">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-            </ul>
-        </nav>
-    </div>
-  </header>
+<!-- Header -->
+<header>
+  <a class="navbar-brand" href="#">Logo</a>
+  <div class="navbar">
+    <!-- Hamburger Icon for Mobile -->
+    <button class="hamburger" aria-label="Menu" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <nav id="navbar-menu">
+      <ul class="navbar-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
 
   <!-- Hero Section -->
   <section class="about-hero">
@@ -155,42 +156,6 @@
   </div>
 </section>
 
-<script>
-  const sliderContainer = document.querySelector('.slider-container');
-  const prevButton = document.getElementById('prev');
-  const nextButton = document.getElementById('next');
-
-  let currentIndex = 0;
-  const totalSlides = document.querySelectorAll('.testimonial').length;
-
-  const updateSliderPosition = () => {
-      const sliderWidth = sliderContainer.clientWidth / 3;
-      sliderContainer.style.transform = `translateX(-${currentIndex * sliderWidth}px)`;
-  };
-
-  nextButton.addEventListener('click', () => {
-      currentIndex++;
-      if (currentIndex >= totalSlides - 2) {
-          currentIndex = 0; // Loop back to start
-      }
-      updateSliderPosition();
-  });
-
-  prevButton.addEventListener('click', () => {
-      currentIndex--;
-      if (currentIndex < 0) {
-          currentIndex = totalSlides - 3; // Loop to the last full set
-      }
-      updateSliderPosition();
-  });
-
-  window.addEventListener('resize', updateSliderPosition);
-
-  // Auto loop through slides every 5 seconds
-  setInterval(() => {
-      nextButton.click();
-  }, 300000);
-</script>
 
 <section class="explore-section">
   <div class="explore-container">
@@ -269,10 +234,9 @@
   </div>
 </footer>
 
-  <script>
-    feather.replace({ color: 'white' });
-  </script>
-    <script src="js/script.js"></script>
-  
+<script>
+  feather.replace({ color: 'white' });
+</script>
+  <script src="js/script.js"></script>
 </body>
 </html>

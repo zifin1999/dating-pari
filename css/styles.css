@@ -973,13 +973,21 @@ header {
 
 /* Contact Form Section */
 .contact-form-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 5rem 1.25rem;
-    background-color: #fff; /* Optional: background for the whole section */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 1.25rem;
+  background-color: #fff;
+}
+
+/* Responsive adjustments for mobile screens */
+@media (max-width: 768px) {
+  .contact-form-section {
+      padding: 5rem 0; /* Remove left and right padding */
   }
+}
+
   
   .contact-heading {
     text-align: center;

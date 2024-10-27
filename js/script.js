@@ -1,7 +1,10 @@
 // Header
-document.querySelector('.hamburger').addEventListener('click', function() {
-    document.querySelector('.navbar-nav').classList.toggle('active');
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('.hamburger').addEventListener('click', function() {
+        document.querySelector('.navbar-nav').classList.toggle('active');
+    });
 });
+
 
 // testimonial slider
 const sliderContainer = document.querySelector('.slider-container');
