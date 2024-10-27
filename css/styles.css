@@ -973,21 +973,13 @@ header {
 
 /* Contact Form Section */
 .contact-form-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 5rem 1.25rem;
-  background-color: #fff;
-}
-
-/* Responsive adjustments for mobile screens */
-@media (max-width: 768px) {
-  .contact-form-section {
-      padding: 5rem 0; /* Remove left and right padding */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem 1.25rem;
+    background-color: #fff; /* Optional: background for the whole section */
   }
-}
-
   
   .contact-heading {
     text-align: center;
@@ -1623,3 +1615,113 @@ header {
   }
 }
 
+
+/* Consistent styling for all input fields, similar to age input */
+.form-card input[type="text"],
+.form-card input[type="tel"],
+.form-card input[type="email"],
+.form-card select {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid #fff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  color: #fff;
+  margin-bottom: 20px;
+  background: transparent;
+  appearance: none;
+  outline: none;
+}
+/* Base Styles for Form Inputs Placeholder */
+.form-card input[type="text"]::placeholder,
+.form-card input[type="tel"]::placeholder,
+.form-card input[type="email"]::placeholder {
+  color: #fff;
+}
+
+/* Review Info Styling */
+.review-info {
+  background: linear-gradient(100.78deg, #FF0000 -0.31%, #9A0107 58%);
+  padding: 20px;
+  border-radius: 10px;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  text-align: left;
+}
+
+.review-info p {
+  margin: 10px 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+}
+
+.review-heading {
+  font-family: 'Poly', serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+/* Styling for Submit Button */
+.submit-button {
+  background: linear-gradient(90deg, #FFFFFF 0%, #FFC1C1 100%);
+  color: #000;
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #ffe0e0;
+}
+
+/* Responsive Styles for Tablet and Mobile */
+@media (max-width: 1024px) {
+  /* Tablet Adjustments */
+  .review-info {
+    padding: 15px;
+    font-size: 18px;
+  }
+
+  .review-info p {
+    font-size: 20px;
+  }
+
+  .review-heading {
+    font-size: 24px;
+  }
+
+  .submit-button {
+    padding: 12px 25px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Mobile Adjustments */
+  .review-info {
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .review-info p {
+    font-size: 18px;
+  }
+
+  .review-heading {
+    font-size: 22px;
+  }
+
+  .submit-button {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+}

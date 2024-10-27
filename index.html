@@ -192,44 +192,152 @@
   </section>
   <!-- end of how it works -->
   
-  <!-- Connect Section -->
+<!-- Connect Section -->
 <section class="connect-section">
   <div class="connect-container">
     <h2 class="connect-heading">Let's Get Connect!</h2>
+    
+    <!-- Form Card with Steps -->
     <div class="form-card">
-      <label for="age-input">Your Age</label>
-      <select id="age-input" name="age">
-        <option value="" disabled selected>Select Age</option>
-        <!-- Options will be populated dynamically -->
-      </select>
+      <!-- Step 1: Age -->
+      <div class="step" data-step="1">
+        <label for="age-input">Your Age</label>
+        <select id="age-input" name="age">
+          <option value="" disabled selected>Select Age</option>
+        </select>
+      </div>
+      
+      <!-- Step 2: Name -->
+      <div class="step" data-step="2" style="display: none;">
+        <label for="name-input">Your Name</label>
+        <input type="text" id="name-input" name="name" placeholder="Enter your name">
+      </div>
+      
+      <!-- Step 3: Mobile Number -->
+      <div class="step" data-step="3" style="display: none;">
+        <label for="mobile-input">Your Mobile Number</label>
+        <input type="tel" id="mobile-input" name="mobile" placeholder="Enter your mobile number">
+      </div>
+      
+      <!-- Step 4: Email -->
+      <div class="step" data-step="4" style="display: none;">
+        <label for="email-input">Your Email</label>
+        <input type="email" id="email-input" name="email" placeholder="Enter your email">
+      </div>
+      
+      <!-- Step 5: Review All Inputs -->
+      <div class="step" data-step="5" style="display: none;">
+        <h3 class="review-heading">Review Your Information</h3>
+        <div class="review-info">
+          <p><strong>Age:</strong> <span id="review-age"></span></p>
+          <p><strong>Name:</strong> <span id="review-name"></span></p>
+          <p><strong>Mobile Number:</strong> <span id="review-mobile"></span></p>
+          <p><strong>Email:</strong> <span id="review-email"></span></p>
+        </div>
+      </div>
+      
+      <!-- Navigation Buttons -->
       <div class="form-navigation">
-        <button class="prev-button">
+        <button class="prev-button" style="display: none;">
           <i class="fas fa-chevron-left"></i>
         </button>
         <button class="next-button">Next</button>
       </div>
     </div>
+    
+    <!-- Progress Bar -->
     <div class="progress-bar">
-      <div class="progress-step complete">
-        <i class="check-icon">&#10003;</i>
-      </div>
-      <div class="progress-step active">2</div>
-      <div class="progress-step">3</div>
-      <div class="progress-step">4</div>
-      <div class="progress-step">5</div>
+      <div class="progress-step" data-step="1">1</div>
+      <div class="progress-step" data-step="2">2</div>
+      <div class="progress-step" data-step="3">3</div>
+      <div class="progress-step" data-step="4">4</div>
+      <div class="progress-step" data-step="5">5</div>
     </div>
   </div>
 </section>
 
+
+
 <script>
-  const ageInput = document.getElementById('age-input');
-  for (let age = 18; age <= 100; age++) {
-    const option = document.createElement('option');
-    option.value = age;
-    option.textContent = age;
-    ageInput.appendChild(option);
+const ageInput = document.getElementById('age-input');
+const steps = document.querySelectorAll('.step');
+const progressSteps = document.querySelectorAll('.progress-step');
+const nextButton = document.querySelector('.next-button');
+const prevButton = document.querySelector('.prev-button');
+let currentStep = 1;
+
+// Populate Age options dynamically
+for (let age = 18; age <= 100; age++) {
+  const option = document.createElement('option');
+  option.value = age;
+  option.textContent = age;
+  ageInput.appendChild(option);
+}
+
+// Function to update the visible step and progress bar
+function updateStep() {
+  steps.forEach((step) => {
+    step.style.display = step.getAttribute('data-step') == currentStep ? 'block' : 'none';
+  });
+
+  progressSteps.forEach((progressStep, index) => {
+    if (index + 1 < currentStep) {
+      progressStep.classList.add('complete');
+      progressStep.innerHTML = '<i class="fas fa-check"></i>';
+    } else {
+      progressStep.classList.remove('complete');
+      progressStep.textContent = index + 1;
+    }
+    
+    progressStep.classList.toggle('active', index + 1 === currentStep);
+  });
+
+  // Update button text to "Submit" on the review step (step 5)
+  if (currentStep === 5) {
+    nextButton.textContent = 'Submit';
+  } else {
+    nextButton.textContent = 'Next';
   }
+
+  // Hide/show navigation buttons as appropriate
+  nextButton.style.display = currentStep <= steps.length ? 'block' : 'none';
+  prevButton.style.display = currentStep > 1 ? 'block' : 'none';
+
+  // Display form data in step 5 for review
+  if (currentStep === 5) {
+    document.getElementById('review-age').textContent = ageInput.value;
+    document.getElementById('review-name').textContent = document.getElementById('name-input').value;
+    document.getElementById('review-mobile').textContent = document.getElementById('mobile-input').value;
+    document.getElementById('review-email').textContent = document.getElementById('email-input').value;
+  }
+}
+
+// Event for Next Button
+nextButton.addEventListener('click', () => {
+  if (currentStep < 5) {
+    currentStep++;
+    updateStep();
+  } else {
+    // Display thank you message and remove buttons after clicking "Submit"
+    document.querySelector('.connect-container').innerHTML = `
+      <h2 class="connect-heading">Thank you for connecting with us!</h2>
+    `;
+  }
+});
+
+// Event for Previous Button
+prevButton.addEventListener('click', () => {
+  if (currentStep > 1) {
+    currentStep--;
+    updateStep();
+  }
+});
+
+// Initialize the first step display
+updateStep();
+
 </script>
+
 
   
 

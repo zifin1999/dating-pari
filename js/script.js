@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+
 // testimonial slider
 const sliderContainer = document.querySelector('.slider-container');
   const prevButton = document.getElementById('prev');
